@@ -11,6 +11,8 @@ package SystemOfSystemsLogicalDecomposition {
 	part def EnergyManagementSystem;
 	part def InfotainmentSystem;
 	part def CommunicationSystem;
+	part def BodySystem;
+
 	part mobilitySystem : MobilitySystem {
 		part vehicleSystem : VehicleSystem {
 			part driveSystem : DriveSystem;
@@ -19,11 +21,13 @@ package SystemOfSystemsLogicalDecomposition {
 			part aDASADSystem : ADASADSystem;
 			part computeSystem : ComputeSystem;
 			part communicationSystem : CommunicationSystem;
+			part bodySystem : BodySystem;
 		}
 		part cloudSystem : CloudSystem;
 		part gridSystem : GridSystem;
 		part infrastructureSystem : InfrastructureSystem;
 	}
+
 	view MobilitySystemLogicalDecomposition : StandardViewDefinitions::GeneralView {
 		expose mobilitySystem;
 		expose mobilitySystem::vehicleSystem;
@@ -37,5 +41,6 @@ package SystemOfSystemsLogicalDecomposition {
 		expose mobilitySystem::vehicleSystem::computeSystem;
 		expose mobilitySystem::vehicleSystem::communicationSystem;
 		expose MobilitySystem;
+		expose mobilitySystem::vehicleSystem::bodySystem;
 	}
 }
